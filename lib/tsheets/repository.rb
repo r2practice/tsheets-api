@@ -60,6 +60,12 @@ class TSheets::Repository
     end
   end
 
+  def delete_all(ids)
+    with_action :delete do
+      self.bridge.delete(url, ids)
+    end
+  end
+
   def all
     self.where({}).all
   end
